@@ -32,6 +32,9 @@ public class Main {
 				case "E":
 					menuConsulta();
 					break;
+				case "N":
+					menuGrupo();
+					break;
 				default:
 					break;
 			}
@@ -69,4 +72,12 @@ public class Main {
 		
 	}
 	
+	private static void menuGrupo(){
+		String nomeGrupo;
+		
+		System.out.println("Grupo: ");
+		nomeGrupo = leitor.nextLine();
+		System.out.println(controle.cadastrarGrupo(nomeGrupo));
+		System.out.println("");
+	}	
 }
