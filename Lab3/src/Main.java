@@ -9,6 +9,10 @@ public class Main {
 		mostraMenu();
 	}
 	
+	/**
+	 * Mostra menu principal
+	 */
+	
 	private static void mostraMenu(){
 		
 		String opcao = "";
@@ -21,7 +25,7 @@ public class Main {
 			System.out.println("(R)egistrar Resposta de Aluno");
 			System.out.println("(I)mprimir Alunos que Responderam");
 			System.out.println("(O)ra, vamos fechar o programa!");
-			System.out.println("Opção> ");
+			System.out.println("Opcao> ");
 			opcao = leitor.nextLine().toUpperCase();
 		
 			
@@ -35,6 +39,15 @@ public class Main {
 				case "N":
 					menuGrupo();
 					break;
+				case "A":
+					menuAlocarOuImprimir();
+					break;
+				case "R":
+					registrarRespostaAluno();
+					break;
+				case "I":
+					imprimirAlunos();
+					break;
 				default:
 					break;
 			}
@@ -42,6 +55,10 @@ public class Main {
 		System.out.println("Ate mais!");
 		leitor.close();
 	}
+	
+	/**
+	 * Mostra menu de consulta de aluno
+	 */
 	
 	private static void menuConsulta(){
 		String matricula;
@@ -53,6 +70,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Mostra menu do cadastro de aluno
+	 */
 	private static void menuCadastro(){
 		String matricula;
 		String nome;
@@ -72,6 +92,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Mostra o menu de criacao do grupo
+	 */
+	
 	private static void menuGrupo(){
 		String nomeGrupo;
 		
@@ -80,4 +104,59 @@ public class Main {
 		System.out.println(controle.cadastrarGrupo(nomeGrupo));
 		System.out.println("");
 	}	
+	
+	/**
+	 * Mostra menu de alocacao ou impressao de grupo
+	 */
+	private static void menuAlocarOuImprimir(){
+		
+		String opcao;
+		String nomeGrupo;
+		
+		System.out.println("(A)locar Aluno ou (I)mprimir Grupo? ");
+		opcao = leitor.nextLine();
+		
+		System.out.println("");
+		
+		switch(opcao.toUpperCase()){
+			case "A":
+				String matricula;
+				
+				System.out.println("Matricula: ");
+				matricula = leitor.nextLine();
+				
+				System.out.println("Grupo: ");
+				nomeGrupo = leitor.nextLine();
+				String obj = controle.getObj(matricula, nomeGrupo);			
+				System.out.println(obj);
+				break;
+			case "I":
+				System.out.println("Grupos: ");
+				nomeGrupo = leitor.nextLine();
+				
+				System.out.println("Alunos do grupo " + nomeGrupo + ": ");
+				
+				String alunosDoGrupo = controle.imprimirGrupo(nomeGrupo);
+				System.out.println(alunosDoGrupo);
+				break;
+				
+			default: 
+				System.out.println("Opcao invalida.");
+				System.out.println("");
+				break;
+		}	
+		
+	}
+	
+	private static void registrarRespostaAluno(){
+		String matricula;
+		System.out.println("Matricula: ");
+		matricula = leitor.nextLine();
+		String msg = controle.respondemQuestoes(matricula);
+		System.out.println(msg);
+	}
+	
+	public static void imprimirAlunos(){
+		System.out.println(controle.listaResponderam());
+	}
 }

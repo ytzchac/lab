@@ -1,14 +1,41 @@
-import java.util.ArrayList;
-
+import java.util.HashMap;
 
 public class Grupo {
-	ArrayList<Aluno> grupoDeAluno = new ArrayList<Aluno>();
+	HashMap<String, Aluno> listaAlunos = new HashMap<>();
 	String tema;
 	
-	public Grupo(String tema, Aluno aluno){
-		this.tema = tema;
-		grupoDeAluno.add(aluno);
+	public Grupo(String tema){
+		this.tema = tema;		
 	}
+	
+	/**
+	 * Aloca alunos atraves da matricula e do nome do grupo
+	 * Metodo incompleto
+	 * 
+	 * @param matricula
+	 * @param nomeGrupo
+	 * @return
+	 */
+	public String alocar(Aluno aluno){
+		listaAlunos.put(aluno.getMatricula(), aluno);
+		return "ALUNO REGISTRADO!";		
+	}
+	
+	/**
+	 * Retorna lista de alunos referente ao grupo escolhido
+	 * @param nomeGrupo
+	 */
+	
+	public String imprimirGrupo(String nomeGrupo){
+		String lista = "";
+		
+		for (String matricula : listaAlunos.keySet()) {
+			Aluno alunoHash = listaAlunos.get(matricula);
+			lista += alunoHash + System.lineSeparator();
+	    }
+		
+		return lista;
+	} 
 
 	@Override
 	public int hashCode() {
