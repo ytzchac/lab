@@ -3,7 +3,6 @@ Laboratórios de LP2
 ==========
 
 Professor: Matheus Gaudêncio
-
 ---
 **Lab3**
 entregue: dd/mm/yyyy
