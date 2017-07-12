@@ -3,11 +3,9 @@ package projeto;
 public class Aposta {
 	private String nomeDoApostador;
 	private double valorDaAposta;
-	private String previsao;
-	private int cenario;
+	private String previsao;	
 	
-	public Aposta(int cenario, String nomeDoApostados, double valorDaAposta, String previsao){
-		this.cenario = cenario;
+	public Aposta(String nomeDoApostados, double valorDaAposta, String previsao){
 		this.nomeDoApostador = nomeDoApostados;
 		this.valorDaAposta = valorDaAposta;
 		this.previsao = previsao;
@@ -35,14 +33,5 @@ public class Aposta {
 
 	public void setPrevisao(String previsao) {
 		this.previsao = previsao;
-	}
-
-	public int getCenario() {
-		return cenario;
-	}
-
-	public void setCenario(int cenario) {
-		this.cenario = cenario;
-	}
-			
+	}			
 }

@@ -7,7 +7,7 @@ public class Sistema {
 	private int totalRateio;
 	
 	ArrayList<Cenario> cenarios = new ArrayList<Cenario>();
-	ArrayList<Aposta> apostas = new ArrayList<Aposta>();
+	
 	/**
 	 * O valor da taxa nao sera alterado ao longo do programa.  
 	 * @param caixa
@@ -65,62 +65,14 @@ public class Sistema {
 			strCenarios += i + " - " + cenarios.get(i).toString();
 		}
 		return strCenarios;
-	}
+	}	
 	
-	/**
-	 * Cadastrar a aposta com nome do apostador, quantia apostada e previsao em um cen�rio atrav�s do n�mero do cen�rio.
-	 * @param cenario
-	 * @param apostador
-	 * @param valor
-	 * @param previsao
-	 */
+	
+	
 	public void cadastrarAposta(int cenario, String apostador, int valor, String previsao){
-		Aposta aposta = new Aposta(cenario, apostador, valor, previsao);
-		apostas.add(aposta);
-	}
+		cenarios.get(cenario).cadastrarAposta(apostador, valor, previsao);
+	}	
 	
-	
-	/**
-	 * Retornar o valor total das apostas feitas em um cen�rio.
-	 * @param cenario
-	 * @return
-	 */
-	public int valorTotalDeApostas(int cenario){
-		int valorTotal = 0;
-		for(int i = 0; i < apostas.size(); i++){
-			if(apostas.get(i).getCenario() == cenario){
-				valorTotal += apostas.get(i).getValorDaAposta();
-			}
-		}
-		
-		return valorTotal;
-	}
-	
-	/**
-	 * Retornar o n�mero de apostas feitas em um cen�rio.
-	 * @param cenario
-	 * @return
-	 */
-	public int totalDeApostas(int cenario){
-		int total = 0;
-		for(int i = 0; i < apostas.size(); i++){
-			if(apostas.get(i).getCenario() == cenario){
-				total ++;
-			}
-		}
-		
-		return total;
-	}
-
-	/**
-	 * Encerrar um cen�rio (indicando se ocorreu ou n�o).
-	 * @param cenario
-	 * @param ocorreu
-	 */
-	
-	public void fecharAposta(int cenario, boolean ocorreu){
-		cenarios.get(cenario).mudaEstado(ocorreu);		
-	}
 	
 	/**
 	 * Retornar o valor total de um cenário encerrado que será destinado ao caixa
@@ -129,7 +81,7 @@ public class Sistema {
 	 */
 	
 	public int getCaixaCenario(int cenario){
-		for(int i)
+		
 	}
 
 
