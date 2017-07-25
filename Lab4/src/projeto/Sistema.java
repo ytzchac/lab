@@ -1,4 +1,5 @@
 package projeto;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Sistema {
@@ -81,6 +82,9 @@ public class Sistema {
 	 */
 	
 	public int getCaixaCenario(int cenario){
+		Cenario cenarioEscolhido = cenarios.get(cenario);
+		int somatorioPerdedores = cenarioEscolhido.getValorPerdedores();
+		return (int) Math.floor(somatorioPerdedores * taxa);		
 		
 	}
 

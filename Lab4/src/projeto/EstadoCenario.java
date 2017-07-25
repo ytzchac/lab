@@ -14,4 +14,14 @@ public enum EstadoCenario {
 		return estado;
 	}
 	
+	/**
+	 * Retorna de o cenario está finalizado e ocorreu ou se está finalizado e nao ocorreu
+	 * @return
+	 */
+	public boolean getStatusCenario(){
+		if(estado.equals(FINALIZADO_OCORREU)){
+			return true;
+		}
+		return false;
+	}
 }

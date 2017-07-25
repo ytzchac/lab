@@ -2,13 +2,19 @@ package projeto;
 
 public class Aposta {
 	private String nomeDoApostador;
-	private double valorDaAposta;
-	private String previsao;	
+	private int valorDaAposta;
+	private boolean acontece;	
 	
-	public Aposta(String nomeDoApostados, double valorDaAposta, String previsao){
+	// lancar uma exception
+	
+	public Aposta(String nomeDoApostados, int valorDaAposta, String previsao){
 		this.nomeDoApostador = nomeDoApostados;
 		this.valorDaAposta = valorDaAposta;
-		this.previsao = previsao;
+		if(previsao.equals("VAI ACONTECER")){
+			acontece = true;
+		}else{
+			acontece  = false;
+		}
 	}
 
 	public String getNomeDoApostador() {
@@ -17,21 +23,21 @@ public class Aposta {
 
 	public void setNomeDoApostador(String nomeDoApostador) {
 		this.nomeDoApostador = nomeDoApostador;
-	}
+	}	
 
 	public double getValorDaAposta() {
 		return valorDaAposta;
 	}
 
-	public void setValorDaAposta(double valorDaAposta) {
+	public void setValorDaAposta(int valorDaAposta) {
 		this.valorDaAposta = valorDaAposta;
 	}
 
-	public String getPrevisao() {
-		return previsao;
+	public boolean getPrevisao() {
+		return acontece;
 	}
 
-	public void setPrevisao(String previsao) {
-		this.previsao = previsao;
+	public void setPrevisao(boolean previsao) {
+		this.acontece = previsao;
 	}			
 }

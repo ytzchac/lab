@@ -67,6 +67,27 @@ public class Cenario {
 		
 		return total;
 	}
+	
+	
+	/**
+	 * Envia valores das apostas dos perdedores
+	 * 
+	 * @return
+	 */
+	// TODO Testar se o cenario finalizou
+	
+	public int getValorPerdedores(){
+		int somaDasApostas = 0;
+		
+		for(int i = 0; i < apostas.size(); i++){
+			boolean previsao = apostas.get(i).getPrevisao();
+			if(previsao != estado.getStatusCenario()){
+				somaDasApostas += apostas.get(i).getValorDaAposta();
+			}			
+		}
+		
+		return somaDasApostas;
+	}
 
 	/**
 	 * Encerrar um cenario (indicando se ocorreu ou nao).
